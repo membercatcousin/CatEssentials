@@ -1,10 +1,9 @@
 name: CatEssentials
-version: ${project.version}
+version: 0.0.1
 main: voxelware.CatEssentials.Plugin
 description: A lightweight Essentials replacement with modern features
 api-version: "1.21"
 authors: [membercatcousin, WatermanMC]
-website: https://example.com
 softdepend: [Vault, PlaceholderAPI, AuthMe]
 load: POSTWORLD  # Load after worlds are ready
 
