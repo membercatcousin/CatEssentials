@@ -1,0 +1,16 @@
+# CatEssentials Configuration
+
+# Should a welcome message be shown to players on join?
+show-welcome-message: true
+# If true and AuthMeReloaded is installed, AuthMe's messages will be shown instead of CatEssentials'.
+prefer-authme-messages: true
+# The message shown to players when they join (if enabled above)
+welcome-message: "Welcome to CatEssentials!"
+
+# Enable or disable the /hub command
+enable-hub-command: true
+# Hub command settings
+hub-mode: "world" # options: "proxy", "transfer", "world"
+hub-server: "lobby" # for proxy/transfer mode
+hub-world: "hub"    # for world mode
+hub-coords: [0, 100, 0] # x, y, z for world mode
