@@ -1,2 +1,2 @@
-# CommanderPlus
-New minecraft plugin that give you so much functionality!
+# CatEssentials
+An EssentialsX replacement minecraft plugin.
