@@ -1,24 +1,125 @@
 name: CatEssentials
-version: 0.0.1
+version: ${project.version}
 main: voxelware.CatEssentials.Plugin
-description: An EssentialsX replacement minecraft plugin
-api-version: 1.21
+description: A lightweight Essentials replacement with modern features
+api-version: "1.21"
+authors: [membercatcousin, WatermanMC]
+website: https://example.com
+softdepend: [Vault, PlaceholderAPI, AuthMe]
+load: POSTWORLD  # Load after worlds are ready
+
 commands:
   catessentials:
-    description: Shows the CatEssentials version
-    usage: /catessentials
+    description: Shows plugin information and reloads config
+    usage: /catessentials [reload]
+    aliases: [ce, catess]
+    permission: catessentials.info
+    permission-message: "${no-permission}"
+    
   hub:
-    description: Teleport to the hub or transfer to another server/world
-    usage: /hub
+    description: Teleport to hub world or server
+    usage: /hub [player]
+    aliases: [lobby]
+    permission: catessentials.hub
+    permission-message: "${no-permission}"
+
   gmc:
     description: Switch to Creative mode
-    usage: /gmc
+    usage: /gmc [player]
+    aliases: [creative]
+    permission: catessentials.gamemode.creative
+    permission-message: "${no-permission}"
+
   gms:
     description: Switch to Survival mode
-    usage: /gms
+    usage: /gms [player]
+    aliases: [survival]
+    permission: catessentials.gamemode.survival
+    permission-message: "${no-permission}"
+
   gma:
     description: Switch to Adventure mode
-    usage: /gma
+    usage: /gma [player]
+    aliases: [adventure]
+    permission: catessentials.gamemode.adventure
+    permission-message: "${no-permission}"
+
   gmsp:
     description: Switch to Spectator mode
-    usage: /gmsp
+    usage: /gmsp [player]
+    aliases: [spectator]
+    permission: catessentials.gamemode.spectator
+    permission-message: "${no-permission}"
+
+permissions:
+  catessentials.*:
+    description: Grants all permissions
+    default: op
+    children:
+      catessentials.admin: true
+      catessentials.hub: true
+      catessentials.gamemode.*: true
+
+  catessentials.admin:
+    description: Access to admin commands
+    default: op
+    children:
+      catessentials.reload: true
+      catessentials.bypass.*: true
+
+  catessentials.info:
+    description: View plugin information
+    default: true
+
+  catessentials.reload:
+    description: Reload plugin configuration
+    default: op
+
+  # Hub permissions
+  catessentials.hub:
+    description: Access to /hub command
+    default: true
+  catessentials.hub.others:
+    description: Teleport other players to hub
+    default: op
+  catessentials.hub.instant:
+    description: Bypass teleport delay
+    default: op
+
+  # Gamemode permissions
+  catessentials.gamemode.*:
+    description: All gamemode permissions
+    default: op
+    children:
+      catessentials.gamemode.creative: true
+      catessentials.gamemode.survival: true
+      catessentials.gamemode.adventure: true
+      catessentials.gamemode.spectator: true
+
+  catessentials.gamemode.creative:
+    description: Use creative mode
+    default: op
+  catessentials.gamemode.creative.others:
+    description: Change others to creative mode
+    default: op
+
+  catessentials.gamemode.survival:
+    description: Use survival mode
+    default: true
+  catessentials.gamemode.survival.others:
+    description: Change others to survival mode
+    default: op
+
+  catessentials.gamemode.adventure:
+    description: Use adventure mode
+    default: true
+  catessentials.gamemode.adventure.others:
+    description: Change others to adventure mode
+    default: op
+
+  catessentials.gamemode.spectator:
+    description: Use spectator mode
+    default: op
+  catessentials.gamemode.spectator.others:
+    description: Change others to spectator mode
+    default: op
