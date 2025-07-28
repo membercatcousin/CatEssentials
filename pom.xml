@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+
+<groupId>organization.darkmoonstudios.CatEssentials</groupId>
+<artifactId>CatEssentials</artifactId>
+<version>0.0.1</version>
+<packaging>jar</packaging>
+
+<properties>
+<maven.compiler.source>8</maven.compiler.source>
+<maven.compiler.target>8</maven.compiler.target>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+</properties>
+
+<!-- Spigot API -->
+<repositories>
+<repository>
+<id>spigotmc-repo</id>
+<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+</repository>
+</repositories>
+<repositories>
+
+<!-- Vault API -->
+<repositories>
+<repository>
+<id>jitpack.io</id>
+<url>https://jitpack.io</url>
+</repository>
+</repositories>
+
+<!-- PlaceholderAPI -->
+<repositories>
+<repository>
+<id>placeholderapi</id>
+<url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+</repository>
+</repositories>
+
+<!-- Spigot API -->
+<dependencies>
+<dependency>
+<groupId>org.spigotmc</groupId>
+<artifactId>spigot-api</artifactId>
+<version>1.16.5-R0.1-SNAPSHOT</version>
+<scope>provided</scope>
+</dependency>
+</dependencies>
+
+<!-- Vault API-->
+<dependencies>
+<dependency>
+<groupId>net.milkbowl.vault</groupId>
+<artifactId>VaultAPI</artifactId>
+<version>1.7</version>
+<scope>provided</scope>
+</dependency>
+</dependencies>
+
+<!--  PlaceholderAPI -->
+<dependencies>
+<dependency>
+<groupId>me.clip</groupId>
+<artifactId>placeholderapi</artifactId>
+<version>{VERSION}</version>
+<scope>provided</scope>
+</dependency>
+</dependencies>
+
+<build>
+<plugins>
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-compiler-plugin</artifactId>
+<version>3.8.1</version>
+<configuration>
+<source>${maven.compiler.source}</source>
+<target>${maven.compiler.target}</target>
+</configuration>
+</plugin>
+
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-jar-plugin</artifactId>
+<version>3.2.0</version>
+<configuration>
+<outputDirectory>target</outputDirectory>
+</configuration>
+</plugin>
+</plugins>
+</build>
+</project>
