@@ -1,0 +1,24 @@
+name: CatEssentials
+version: 0.0.1
+main: voxelware.CatEssentials.Plugin
+description: An EssentialsX replacement minecraft plugin
+api-version: 1.21
+commands:
+  catessentials:
+    description: Shows the CatEssentials version
+    usage: /catessentials
+  hub:
+    description: Teleport to the hub or transfer to another server/world
+    usage: /hub
+  gmc:
+    description: Switch to Creative mode
+    usage: /gmc
+  gms:
+    description: Switch to Survival mode
+    usage: /gms
+  gma:
+    description: Switch to Adventure mode
+    usage: /gma
+  gmsp:
+    description: Switch to Spectator mode
+    usage: /gmsp
