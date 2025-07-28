@@ -1,16 +1,70 @@
 # CatEssentials Configuration
+# Version: 1.0
 
-# Should a welcome message be shown to players on join?
-show-welcome-message: true
-# If true and AuthMeReloaded is installed, AuthMe's messages will be shown instead of CatEssentials'.
-prefer-authme-messages: true
-# The message shown to players when they join (if enabled above)
-welcome-message: "Welcome to CatEssentials!"
+# ========================
+#       Core Settings
+# ========================
+core:
+  debug: false
+  metrics: true
+  update-checker: true
 
-# Enable or disable the /hub command
-enable-hub-command: true
-# Hub command settings
-hub-mode: "world" # options: "proxy", "transfer", "world"
-hub-server: "lobby" # for proxy/transfer mode
-hub-world: "hub"    # for world mode
-hub-coords: [0, 100, 0] # x, y, z for world mode
+# ========================
+#       Join Settings
+# ========================
+join:
+  welcome-message:
+    enabled: true
+    text: "&aWelcome {player} to the server! &7(&eCatEssentials v{version}&7)"
+    prefer-authme: true  # Respect AuthMe's messages if installed
+
+# ========================
+#       Hub Settings
+# ========================
+hub:
+  enabled: true
+  mode: world  # Options: [world, proxy, transfer]
+  
+  # For proxy/transfer mode
+  server: lobby
+  
+  # For world mode
+  world: hub
+  coordinates: [0.5, 100, 0.5, 0, 0]  # x, y, z, yaw, pitch
+  teleport-delay: 3  # Seconds
+  safe-teleport: true  # Prevent teleporting into blocks
+
+# ========================
+#      Economy Settings
+# ========================
+economy:
+  enabled: true
+  log-transactions: false
+  starting-balance: 100.0
+  currency-symbol: "$"
+
+# ========================
+#      Message Settings
+# ========================
+messages:
+  # General Messages
+  no-permission: "&cYou don't have permission!"
+  player-not-found: "&cPlayer not found!"
+  command-usage: "&cUsage: {usage}"
+  
+  # Hub Messages
+  hub:
+    disabled: "&cHub is currently disabled!"
+    teleporting: "&aTeleporting to hub in &e{delay} &aseconds..."
+    arrived: "&aWelcome to the hub!"
+    proxy-connecting: "&aConnecting to &e{server}&a..."
+    
+  # Gamemode Messages
+  gamemode:
+    changed: "&aYour gamemode has been set to &e{gamemode}"
+    changed-other: "&aSet &e{player}&a's gamemode to &e{gamemode}"
+  
+  # Economy Messages
+  economy:
+    insufficient-funds: "&cYou need &e{amount} &cto do this!"
+    payment-received: "&aReceived &e{amount} &afrom &e{sender}"
