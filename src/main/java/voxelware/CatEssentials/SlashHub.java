@@ -138,6 +138,7 @@ public class SlashHub implements CommandExecutor, TabCompleter {
                         Ticks.duration(5),
                         Ticks.duration(20),
                         Ticks.duration(5)
+                    )
                 ));
 
                 // Play countdown sound
