@@ -1,5 +1,9 @@
 # CatEssentials Configuration
-# Version: 1.0
+# Version 0.0.1
+# This plugin is compatible for Paper 1.21+
+# Note:
+# Don't use TABS
+# Don't remive the indentations
 
 # ========================
 #       Core Settings
@@ -14,7 +18,7 @@ core:
 # ========================
 join:
   welcome-message:
-    enabled: true
+    enabled: true # Disable if you have other plugin doing the same feature
     text: "&aWelcome {player} to the server! &7(&eCatEssentials v{version}&7)"
     prefer-authme: true  # Respect AuthMe's messages if installed
 
@@ -48,9 +52,9 @@ economy:
 # ========================
 messages:
   # General Messages
-  no-permission: "&cYou don't have permission!"
+  no-permission: "&cYou don't have permission to use this command"
   player-not-found: "&cPlayer not found!"
-  command-usage: "&cUsage: {usage}"
+  command-usage: "&6Usage&7: &a{usage}"
   
   # Hub Messages
   hub:
