@@ -14,6 +14,7 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <adventure.version>4.15.0</adventure.version>
+        <spigot.version>1.21-R0.1-SNAPSHOT</spigot.version>
     </properties>
 
     <repositories>
@@ -29,22 +30,34 @@
             <id>placeholderapi</id>
             <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
     </repositories>
 
     <dependencies>
-        <!-- Paper API -->
+        <!-- Paper API with full compilation support -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.21-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
+            <version>${spigot.version}</version>
+            <scope>compile</scope>
         </dependency>
 
-        <!-- Vault API -->
+        <!-- Vault API with compile scope -->
         <dependency>
             <groupId>com.github.MilkBowl</groupId>
             <artifactId>VaultAPI</artifactId>
             <version>1.7</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Bukkit/Spigot annotations -->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-annotations</artifactId>
+            <version>${spigot.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -56,7 +69,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Adventure API (for modern text components) -->
+        <!-- Adventure API -->
         <dependency>
             <groupId>net.kyori</groupId>
             <artifactId>adventure-api</artifactId>
@@ -74,6 +87,9 @@
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
 
@@ -88,10 +104,11 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
                             <relocations>
                                 <relocation>
                                     <pattern>org.bstats</pattern>
-                                    <shadedPattern>your.package.bstats</shadedPattern>
+                                    <shadedPattern>voxelware.CatEssentials.bstats</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
@@ -107,6 +124,7 @@
                     <archive>
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addClasspath>true</addClasspath>
                         </manifest>
                     </archive>
                 </configuration>
